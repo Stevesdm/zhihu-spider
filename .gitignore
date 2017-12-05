@@ -1,0 +1,23 @@
+### Java template
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+# IntelliJ project files
+.idea
+*.iml
+target
+classes
+
+# Eclipse project files
+.classpath
+.project
+*.prefs
+.settings*
+.metadata*
+
+
