@@ -43,9 +43,9 @@ public class ZhihuHomePageProcessor implements PageProcessor {
                 String url = "https://www.zhihu.com/api/v4/members/" + userName + "/answers?include=data%5B*%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Cmark_infos%2Ccreated_time%2Cupdated_time%2Creview_info%2Cquestion%2Cexcerpt%2Crelationship.is_authorized%2Cvoting%2Cis_author%2Cis_thanked%2Cis_nothelp%2Cupvoted_followees%3Bdata%5B*%5D.author.badge%5B%3F(type%3Dbest_answerer)%5D.topics&offset=" + offset + "&limit=" + limit + "&sort_by=created";
                 page.addTargetRequest(url);
             }
-        } else if(page.getUrl().regex(URL_answer).match()) {
+        } else if (page.getUrl().regex(URL_answer).match()) {
             List<String> urlList = page.getHtml().xpath("//div[@class=RichContent-inner]//img/@src").all();
-            String filePath =存储路径+userName;
+            String filePath = 存储路径 + userName;
             urlList.forEach(url -> {
                 try {
                     downloadPicture(url, filePath, Integer.toString(RandomUtils.nextInt())
@@ -84,7 +84,7 @@ public class ZhihuHomePageProcessor implements PageProcessor {
         // 读取到的数据长度
         int len;
         // 输出的文件流
-        File file = new File(savePath +  "/" + filename);
+        File file = new File(savePath + "/" + filename);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             file.createNewFile();
